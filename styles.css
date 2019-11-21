@@ -1,0 +1,108 @@
+body {
+	background-color: #9f9f9f;
+}
+
+.instruct1 {
+	background-color: #B2D6FF;
+	height: 25%;
+	line-height: 30px;
+	margin-left: 25%;
+	text-align: center;
+	width: 50%;
+}
+
+.instruct2 {
+	background-color: #F09A9D;
+	height: 25%;
+	line-height: 30px;
+	margin-left: 25%;
+	text-align: center;
+	width: 50%;
+}
+
+.instruct3 {
+	background-color: #F5CF8E;
+	height: 25%;
+	line-height: 30px;
+	margin-left: 25%;
+	text-align: center;
+	width: 50%;
+}
+
+.instruct4 {
+	background-color: #D6E9FE;
+	height: 25%;
+	line-height: 30px;
+	margin-left: 25%;
+	text-align: center;
+	width: 50%;
+}
+
+#bgColor {
+	border: 1px solid #000000;
+	margin-left: 10px;
+}
+
+#endButton {
+	background-color: white;
+	border: 5px solid #f44336;
+	color: #000000;
+	cursor: pointer;
+	font-size: 48px;
+	font-weight: bold;
+	margin-left: 30%;
+	margin-right: 30;
+	margin-top: 50px;
+	text-align: center;
+	width: 40%;
+}
+
+#endButton:active {
+	background-color: #008CBA;
+}
+
+#instructions {
+	/*border: 1px solid #00FF00;*/
+	font-family: "Helvetica Neue", Helvetica, Arial;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 0px;
+
+	display: inline-block;
+    vertical-align: middle;
+}
+
+#startButton {
+	background-color: white;
+	border: 5px solid #f44336;
+	color: #000000;
+	cursor: pointer;
+	font-size: 48px;
+	font-weight: bold;
+	margin-left: 30%;
+	margin-right: 30;
+	margin-top: 50px;
+	text-align: center;
+	width: 40%;
+}
+
+#startButton:active { /*Hovering Effect*/
+	background-color: #008CBA;
+}
+
+#result {
+	color: #C0C0C0;
+	font-family: "Lucida Console", Monaco, monospace;
+	font-size: 36px;
+	font-weight: bold;
+	text-align: center;
+}
+
+#title {
+	color: #CC0000;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 36px;
+	font-weight: bold;
+	text-align: center;
+}
+

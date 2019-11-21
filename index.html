@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Reaction Test</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body onload="initial()" onkeydown="keyStart()">
+	<p id="title" onclick="window.location.reload();">Reaction Time Test</p>
+	<hr>
+
+	<div class='instruct1'>
+		<p id="instructions">Instructions:</p>
+	</div>
+
+	<div class='instruct2'>
+		<p id="instructions">(1) Click the "Start" button (ENTER)</p>
+	</div>
+
+	<div class='instruct3'>
+		<p id="instructions">(2) Click the "Click Here" button when the page background changes color → </p>
+		<input type="color" id="bgColor" value="#035714"> <!--Dark Green because it looks nice-->
+	</div>
+
+	<div class='instruct4'>
+		<p id="instructions">(3) To retake the test, (r)efresh the page or click the title</p>
+	</div>
+
+		<button id="startButton" type="button" onclick="start()">Start</button>
+		<button id="endButton" type="button" onclick="end()">Click Here</button>
+
+	<p id="result"></p>
+	<!-- <p id="test1"></p>
+	<p id="test2"></p>
+	<p id="test3"></p>
+	<p id="test4"></p>
+	<p id="test5"></p> -->
+
+</body>
+
+<script>
+var started = false;
+
+var rand;
+var elapsed;
+var begin;
+
+var intrvl;
+var seconds = new Date().getTime();
+var last = seconds;
+
+function timer(){
+	    var now = new Date().getTime();
+	    last = now;
+	    elapsed = now - seconds;
+	    //result.innerHTML = elapsed;
+}
+
+function initial(){
+	document.getElementById("endButton").style.visibility = "hidden";
+}
+
+function start(){
+	var element = document.getElementById("startButton");
+    element.parentNode.removeChild(element);
+	document.getElementById("endButton").style.visibility = "visible";
+
+	function changeBG() {
+		var min = 1.500; //Minimum Time
+		var max = 5.500; //Maximum Time
+		rand = Math.floor(Math.random() * (max - min + 1) + min);
+		//result.innerHTML = rand;
+		setTimeout(function(){
+			document.body.style.backgroundColor = document.getElementById("bgColor").value;
+			intrvl = setInterval(timer , 10);
+		}, rand * 1000);
+	}
+	changeBG();
+	begin = new Date().getTime();
+}
+
+function end(){
+	var now = new Date().getTime();
+	clearInterval(intrvl);
+	var time = (elapsed/1000) - rand - ((begin - seconds)/1000);
+	/*test1.innerHTML = (elapsed/1000);
+	test2.innerHTML = rand;
+	test3.innerHTML = now;
+	test4.innerHTML = seconds;
+	test5.innerHTML = begin;*/
+	document.getElementById("endButton").style.visibility = "hidden";
+	result.innerHTML = "Reaction Time: " + time.toFixed(3);
+}
+
+function keyStart() { //Easier to use
+	var x = event.key;
+	if (x == "Enter" && started == false) {
+		document.getElementById("startButton").click();
+		started = true;
+	}else if (x == "Enter" && started == true){
+		document.getElementById("endButton").click();
+		started = false;
+	}else if (x == "r" || x == "R"){
+		window.location.reload();
+	}
+}
+</script>
+</html>
